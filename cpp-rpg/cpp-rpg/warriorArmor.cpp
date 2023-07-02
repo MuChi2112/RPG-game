@@ -1,5 +1,7 @@
 #include "warriorArmor.h"
 
+using namespace ArmorLib;
+
 std::map<WarriorArmorCollection, ArmorElement> WarriorArmorMap{
 	{WarriorArmorCollection::Armor1, { 500, 70, "護甲", "白銀" }},
 	{ WarriorArmorCollection::Armor2, {1000, 130, "護甲", "黃金"} },
