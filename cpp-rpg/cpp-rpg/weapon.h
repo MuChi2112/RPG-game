@@ -16,6 +16,7 @@ namespace WeaponLib {
 	class Weapon {
 
 	public:
+		Weapon();
 		Weapon(WeaponElement element);
 		int GetPrice();
 		int GetATK();

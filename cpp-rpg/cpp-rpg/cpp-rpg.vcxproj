@@ -128,6 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="armor.cpp" />
+    <ClCompile Include="character.cpp" />
+    <ClCompile Include="characterFactory.cpp" />
     <ClCompile Include="cpp-rpg.cpp" />
     <ClCompile Include="monsterArmor.cpp" />
     <ClCompile Include="monsterWeapon.cpp" />
@@ -139,13 +141,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="armor.h" />
+    <ClInclude Include="character.h" />
+    <ClInclude Include="characterFactory.h" />
+    <ClInclude Include="monster.h" />
     <ClInclude Include="monsterArmor.h" />
     <ClInclude Include="monsterWeapon.h" />
+    <ClInclude Include="warrior.h" />
     <ClInclude Include="warriorArmor.h" />
     <ClInclude Include="warriorWeapon.h" />
     <ClInclude Include="weapon.h" />
     <ClInclude Include="wizardArmor.h" />
     <ClInclude Include="wizardWeapon.h" />
+    <ClInclude Include="wizzard.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

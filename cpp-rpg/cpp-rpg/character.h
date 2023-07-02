@@ -6,9 +6,16 @@
 #include "armor.h"
 
 namespace CharacterLib {
+
+	enum class CharacterElemnt {
+		Warrior,
+		Monster,
+		Wizrd
+	};
+
 	class Character {
 	public:
-
+		Character() {};
 		std::string GetName();
 		int GetHealth();
 		int GetATK();

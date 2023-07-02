@@ -12,6 +12,7 @@ namespace ArmorLib {
 
 	class Armor {
 	public:
+		Armor();
 		Armor(ArmorElement element);
 		int GetPrice();
 		int GetATK();

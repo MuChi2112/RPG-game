@@ -2,6 +2,10 @@
 
 using namespace WeaponLib;
 
+Weapon::Weapon() {
+
+}
+
 Weapon::Weapon(WeaponElement element){
 	Price=element.price;
 	ATK=element.atk;

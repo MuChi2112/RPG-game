@@ -1,6 +1,10 @@
 #include "armor.h"
 using namespace ArmorLib;
 
+Armor::Armor() {
+
+}
+
 Armor::Armor(ArmorElement element) {
 	Price = element.price;
 	ATK = element.atk;
