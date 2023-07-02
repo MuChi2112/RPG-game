@@ -2,7 +2,8 @@
 #include "weapon.h"
 #include <map>
 
-enum class WarriorWeaponCollection{
+namespace WeaponLib{
+enum class WarriorWeaponCollection {
     WEAPON1,
     WEAPON2,
     WEAPON3,
@@ -10,8 +11,8 @@ enum class WarriorWeaponCollection{
 };
 
 
-class WarriorWeapon:public Weapon{
+class WarriorWeapon :public Weapon {
 public:
-	WarriorWeapon(WarriorWeaponCollection warriorWeaponCollection);
+    WarriorWeapon(WarriorWeaponCollection warriorWeaponCollection);
 };
- 
+}

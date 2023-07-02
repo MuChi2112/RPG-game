@@ -1,5 +1,7 @@
 #include "weapon.h"
 
+using namespace WeaponLib;
+
 Weapon::Weapon(WeaponElement element){
 	Price=element.price;
 	ATK=element.atk;
@@ -8,7 +10,7 @@ Weapon::Weapon(WeaponElement element){
 }
 	
     
-    int Weapon::GetPrice(){return Price;}
-	int Weapon::GetATK(){return ATK;}
-	string Weapon::GetName(){return Name;}
-	string Weapon::GetRank(){return Rank;}
+int Weapon::GetPrice(){return Price;}
+int Weapon::GetATK(){return ATK;}
+string Weapon::GetName(){return Name;}
+string Weapon::GetRank(){return Rank;}

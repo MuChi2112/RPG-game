@@ -1,5 +1,7 @@
 #include "wizardWeapon.h"
 
+using namespace WeaponLib;
+
 std::map<WizardWeaponCollection, WeaponElement> WizardWeaponsMap{
     {WizardWeaponCollection::WEAPON1, {500, 70, "法杖", "白銀"}},
     {WizardWeaponCollection::WEAPON2, {1000, 130, "法杖", "黃金"}},

@@ -1,5 +1,7 @@
 #include "monsterWeapon.h"
 
+using namespace WeaponLib;
+
 std::map<MonsterWeaponCollection, WeaponElement> MonsterWeaponsMap{
     {MonsterWeaponCollection::WEAPON1, {500, 70, "槌子", "白銀"}},
     {MonsterWeaponCollection::WEAPON2, {1000, 130, "槌子", "黃金"}},

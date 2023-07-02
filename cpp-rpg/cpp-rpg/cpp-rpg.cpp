@@ -3,5 +3,5 @@
 using namespace std;
 
 int main() {
-    WarriorWeapon WarriorWeapon(WarriorWeaponCollection::WEAPON1);
+	WeaponLib::WarriorWeapon weapon(WeaponLib::WarriorWeaponCollection::WEAPON1);
 }
