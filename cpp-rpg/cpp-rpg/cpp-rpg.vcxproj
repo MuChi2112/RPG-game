@@ -149,7 +149,9 @@
     <ClInclude Include="warrior.h" />
     <ClInclude Include="warriorArmor.h" />
     <ClInclude Include="warriorWeapon.h" />
+    <ClInclude Include="warriorWeaponStore.h" />
     <ClInclude Include="weapon.h" />
+    <ClInclude Include="weaponStore.h" />
     <ClInclude Include="wizardArmor.h" />
     <ClInclude Include="wizardWeapon.h" />
     <ClInclude Include="wizzard.h" />

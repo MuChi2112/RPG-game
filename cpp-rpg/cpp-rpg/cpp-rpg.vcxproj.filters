@@ -89,5 +89,11 @@
     <ClInclude Include="characterFactory.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="weaponStore.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="warriorWeaponStore.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
