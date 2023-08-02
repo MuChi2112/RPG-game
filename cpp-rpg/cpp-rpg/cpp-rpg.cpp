@@ -3,16 +3,23 @@
 #include "characterFactory.h"
 
 
-using namespace std;
-
 int main() {
-	//WeaponLib::WarriorWeapon weapon1(WeaponLib::WarriorWeaponCollection::WEAPON1);
-	//WeaponLib::Weapon* weapon = new WeaponLib::WarriorWeapon(WeaponLib::WarriorWeaponCollection::WEAPON1);
-	//CharacterLib::Character* character = CharacterFactory::createChacracter(CharacterLib::CharacterElemnt::Wizrd);
-	 
-	WeaponStore* store = new WarriorWeaponStore();
-	auto weapon = store->CreateWeapon("白金巨劍");
 
+
+	std::cout << "遊戲開始" << std::endl;
+	std::cout << "玩家一請選擇職業" << std::endl;
+	std::cout << "1. 戰士 2. 法師 3. 妖怪" << std::endl;
+	
+	std::string characterNum = "";
+	std::cin >> characterNum;
+
+	// 需要寫例外條件判斷
+	while (characterNum != "1" && characterNum != "2" && characterNum != "3") {
+		std::cout << "請選擇數字1~3" << std::endl;
+		std::cin >> characterNum;
+	}
+
+	CharacterFactory::createChacracter(std::stoi(characterNum));
 
 }
 

@@ -29,10 +29,13 @@ ArmorLib::Armor Character::GetArmor() {
 }
 
 void Character::SetMoney(int money) {
+	mMoney = money;
 }
 void Character::SetWeapon(WeaponLib::Weapon weapon) {
+	mWeapon = weapon;
 }
 void Character::SetArmor(ArmorLib::Armor armor) {
+	mArmor = armor;
 }
 void Character::TakeAttack() {
 }

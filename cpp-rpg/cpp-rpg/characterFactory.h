@@ -7,7 +7,7 @@
 class CharacterFactory{
 public:
 
-	static CharacterLib::Character* createChacracter(CharacterLib::CharacterElemnt element);
+	static CharacterLib::Character* createChacracter(int characterNum);
 
 
 private:

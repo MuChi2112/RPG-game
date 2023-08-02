@@ -10,8 +10,9 @@ std::map<WarriorWeaponCollection, WeaponElement> WarriorWeaponsMap{
 };
 
 	WarriorWeapon::WarriorWeapon(WarriorWeaponCollection collection)
-    :Weapon(WarriorWeaponsMap[collection]){
-        
+        :Weapon(WarriorWeaponsMap[collection])
+    {
+
     }
 
 

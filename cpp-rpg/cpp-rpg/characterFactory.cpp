@@ -1,17 +1,17 @@
 #include "characterFactory.h"
 
 
-CharacterLib::Character* CharacterFactory::createChacracter(CharacterLib::CharacterElemnt element) {
+CharacterLib::Character* CharacterFactory::createChacracter(int characterNum) {
 	
 	CharacterLib::Character* character;
-	if (element == CharacterLib::CharacterElemnt::Monster) {
-		 character = new CharacterLib::Monster();
+	if (characterNum == 1) {
+		 character = new CharacterLib::Warrior();
 	}
-	else if (element == CharacterLib::CharacterElemnt::Warrior) {
+	else if (characterNum == 2) {
 		character = new CharacterLib::Wizzard();
 	}
 	else {
-		character = new CharacterLib::Warrior();
+		character = new CharacterLib::Monster();
 	}
 	return character;
 }
