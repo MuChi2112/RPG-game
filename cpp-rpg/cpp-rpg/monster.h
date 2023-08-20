@@ -4,9 +4,8 @@
 namespace CharacterLib {
 	class Monster : public Character {
 	public:
-		Monster():Character()
-		
-		{};
+		Monster();
+
 	private:
 	};
 }

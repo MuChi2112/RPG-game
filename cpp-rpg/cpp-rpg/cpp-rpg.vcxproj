@@ -131,21 +131,34 @@
     <ClCompile Include="character.cpp" />
     <ClCompile Include="characterFactory.cpp" />
     <ClCompile Include="cpp-rpg.cpp" />
+    <ClCompile Include="monster.cpp" />
     <ClCompile Include="monsterArmor.cpp" />
+    <ClCompile Include="monsterArmorStore.cpp" />
+    <ClCompile Include="monsterArmorStore.h" />
     <ClCompile Include="monsterWeapon.cpp" />
+    <ClCompile Include="monsterWeaponStore.cpp" />
+    <ClCompile Include="warrior.cpp" />
     <ClCompile Include="warriorArmor.cpp" />
+    <ClCompile Include="warriorArmorStore.cpp" />
+    <ClCompile Include="warriorArmorStore.h" />
     <ClCompile Include="warriorWeapon.cpp" />
     <ClCompile Include="weapon.cpp" />
+    <ClCompile Include="warriorWeaponStore.cpp" />
+    <ClCompile Include="wizard.cpp" />
     <ClCompile Include="wizardArmor.cpp" />
+    <ClCompile Include="wizardArmorStore.cpp" />
     <ClCompile Include="wizardWeapon.cpp" />
+    <ClCompile Include="wizardWeaponStore.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="armorStore.h" />
     <ClInclude Include="armor.h" />
     <ClInclude Include="character.h" />
     <ClInclude Include="characterFactory.h" />
     <ClInclude Include="monster.h" />
     <ClInclude Include="monsterArmor.h" />
     <ClInclude Include="monsterWeapon.h" />
+    <ClInclude Include="monsterWeaponStore.h" />
     <ClInclude Include="warrior.h" />
     <ClInclude Include="warriorArmor.h" />
     <ClInclude Include="warriorWeapon.h" />
@@ -153,8 +166,10 @@
     <ClInclude Include="weapon.h" />
     <ClInclude Include="weaponStore.h" />
     <ClInclude Include="wizardArmor.h" />
+    <ClInclude Include="wizardArmorStore.h" />
     <ClInclude Include="wizardWeapon.h" />
-    <ClInclude Include="wizzard.h" />
+    <ClInclude Include="wizard.h" />
+    <ClInclude Include="wizardWeaponStore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

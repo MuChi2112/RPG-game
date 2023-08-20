@@ -1,12 +1,13 @@
 #pragma once
+#pragma once
 
 #include "weaponStore.h"
 
 #include <iostream>
 
-#include "warriorWeapon.h"
+#include "wizardWeapon.h"
 
-class WarriorWeaponStore : public WeaponStore {
+class WizardWeaponStore : public WeaponStore {
 public:
 
 	virtual void Show() override;

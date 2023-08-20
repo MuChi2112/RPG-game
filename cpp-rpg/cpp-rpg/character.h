@@ -6,7 +6,6 @@
 #include "armor.h"
 
 namespace CharacterLib {
-
 	enum class CharacterElemnt {
 		Warrior,
 		Monster,
@@ -23,14 +22,15 @@ namespace CharacterLib {
 		int GetMoney();
 		WeaponLib::Weapon GetWeapon();
 		ArmorLib::Armor GetArmor();
+		void SetHealth(int hp);
 		void SetMoney(int money);
 		void SetWeapon(WeaponLib::Weapon weapon);
 		void SetArmor(ArmorLib::Armor armor);
-		void TakeAttack();
+		void TakeAttack(Character* opponent);
 		void Treatment();
 		void Show();
 
-	private:
+	protected:
 
 		std::string mName;
 		int mHealth;

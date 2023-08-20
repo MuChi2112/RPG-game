@@ -3,18 +3,18 @@
 using namespace WeaponLib;
 
 Weapon::Weapon() {
-
 }
 
-Weapon::Weapon(WeaponElement element){
-	Price=element.price;
-	ATK=element.atk;
-	Name=element.name;
-	Rank=element.rank;
+Weapon::Weapon(WeaponElement element) {
+	Price = element.price;
+	ATK = element.atk;
+	mName = element.name;
+	Rank = element.rank;
 }
-	
-    
-int Weapon::GetPrice(){return Price;}
-int Weapon::GetATK(){return ATK;}
-string Weapon::GetName(){return Name;}
-string Weapon::GetRank(){return Rank;}
+
+int Weapon::GetPrice() { return Price; }
+int Weapon::GetATK() { return ATK; }
+string Weapon::GetName() {
+	return mName;
+}
+string Weapon::GetRank() { return Rank; }

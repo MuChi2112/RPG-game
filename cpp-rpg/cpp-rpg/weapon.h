@@ -3,9 +3,7 @@
 #include <map>
 using namespace std;
 
-
 namespace WeaponLib {
-
 	struct WeaponElement {
 		int price;
 		int atk;
@@ -14,7 +12,6 @@ namespace WeaponLib {
 	};
 
 	class Weapon {
-
 	public:
 		Weapon();
 		Weapon(WeaponElement element);
@@ -24,9 +21,9 @@ namespace WeaponLib {
 		string GetRank();
 
 	protected:
-		int Price;			//武器价格
-		int ATK;			//武器攻击力
-		string Name;		//武器名称
-		string Rank;		//武器等级
+		int Price;
+		int ATK;
+		string mName;
+		string Rank;
 	};
 }

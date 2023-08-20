@@ -2,13 +2,12 @@
 
 #include "monster.h"
 #include "warrior.h"
-#include "wizzard.h"
+#include "wizard.h"
 
-class CharacterFactory{
+class CharacterFactory {
 public:
 
 	static CharacterLib::Character* createChacracter(int characterNum);
-
 
 private:
 };

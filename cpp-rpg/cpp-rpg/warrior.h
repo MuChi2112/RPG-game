@@ -5,6 +5,8 @@ namespace CharacterLib {
 	class Warrior : public Character {
 	public:
 
+		Warrior();
+
 	private:
 	};
 }

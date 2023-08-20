@@ -2,9 +2,9 @@
 #include "character.h"
 
 namespace CharacterLib {
-	class Wizzard : public Character {
+	class Wizard : public Character {
 	public:
-
+		Wizard();
 	private:
 	};
 }

@@ -48,6 +48,39 @@
     <ClCompile Include="characterFactory.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="warrior.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="monster.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="wizard.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="warriorWeaponStore.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="monsterWeaponStore.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="wizardWeaponStore.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="warriorArmorStore.h">
+      <Filter>標頭檔</Filter>
+    </ClCompile>
+    <ClCompile Include="monsterArmorStore.h">
+      <Filter>標頭檔</Filter>
+    </ClCompile>
+    <ClCompile Include="wizardArmorStore.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="warriorArmorStore.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="monsterArmorStore.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="armor.h">
@@ -65,9 +98,6 @@
     <ClInclude Include="warriorWeapon.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="weapon.h">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="wizardArmor.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
@@ -83,7 +113,7 @@
     <ClInclude Include="warrior.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="wizzard.h">
+    <ClInclude Include="wizard.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="characterFactory.h">
@@ -93,6 +123,21 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="warriorWeaponStore.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="weapon.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="monsterWeaponStore.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="wizardWeaponStore.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="armorStore.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="wizardArmorStore.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
