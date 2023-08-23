@@ -7,19 +7,19 @@ void WizardArmorStore::Show() {
 	cout << "鑽石面紗，花費3000元，攻擊力350" << endl;
 }
 
-ArmorLib::Armor* WizardArmorStore::CreateArmor(std::string armorName) {
+ArmorLib::Armor* WizardArmorStore::CreateArmor(int num) {
 	ArmorLib::Armor* armor;
 	armor = nullptr;
-	if (armorName == "白銀面紗") {
+	if (num == 1) {
 		armor = new ArmorLib::WizardArmor(ArmorLib::WizardArmorCollection::Armor1);
 	}
-	else if (armorName == "黃金面紗") {
+	else if (num == 2) {
 		armor = new ArmorLib::WizardArmor(ArmorLib::WizardArmorCollection::Armor2);
 	}
-	else if (armorName == "白金面紗") {
+	else if (num == 3) {
 		armor = new ArmorLib::WizardArmor(ArmorLib::WizardArmorCollection::Armor3);
 	}
-	else if (armorName == "鑽石面紗") {
+	else if (num == 4) {
 		armor = new ArmorLib::WizardArmor(ArmorLib::WizardArmorCollection::Armor4);
 	}
 	return armor;

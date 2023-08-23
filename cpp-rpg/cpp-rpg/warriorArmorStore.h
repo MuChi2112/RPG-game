@@ -11,5 +11,5 @@ public:
 
 	virtual void Show() override;
 
-	virtual ArmorLib::Armor* CreateArmor(std::string armorName) override;
+	virtual ArmorLib::Armor* CreateArmor(int num) override;
 };

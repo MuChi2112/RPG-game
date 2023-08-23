@@ -12,5 +12,5 @@ public:
 
 	virtual void Show() override;
 
-	virtual WeaponLib::Weapon* CreateWeapon(std::string weaponName) override;
+	virtual WeaponLib::Weapon* CreateWeapon(int num) override;
 };

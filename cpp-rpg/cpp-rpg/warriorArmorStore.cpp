@@ -7,19 +7,19 @@ void WarriorArmorStore::Show() {
 	cout << "Æp¥ÛñZ¥Ò¡Aªá¶O3000¤¸¡A§ðÀ»¤O350" << endl;
 }
 
-ArmorLib::Armor* WarriorArmorStore::CreateArmor(std::string armorName) {
+ArmorLib::Armor* WarriorArmorStore::CreateArmor(int num) {
 	ArmorLib::Armor* armor;
 	armor = nullptr;
-	if (armorName == "¥Õ»ÈñZ¥Ò") {
+	if (num == 1) {
 		armor = new ArmorLib::WarriorArmor(ArmorLib::WarriorArmorCollection::Armor1);
 	}
-	else if (armorName == "¶Àª÷ñZ¥Ò") {
+	else if (num == 2) {
 		armor = new ArmorLib::WarriorArmor(ArmorLib::WarriorArmorCollection::Armor2);
 	}
-	else if (armorName == "¥Õª÷ñZ¥Ò") {
+	else if (num == 3) {
 		armor = new ArmorLib::WarriorArmor(ArmorLib::WarriorArmorCollection::Armor3);
 	}
-	else if (armorName == "Æp¥ÛñZ¥Ò") {
+	else if (num == 4) {
 		armor = new ArmorLib::WarriorArmor(ArmorLib::WarriorArmorCollection::Armor4);
 	}
 	return armor;

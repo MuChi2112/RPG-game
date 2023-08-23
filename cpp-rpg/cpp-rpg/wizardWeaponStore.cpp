@@ -7,19 +7,19 @@ void WizardWeaponStore::Show() {
 	cout << "鑽石法杖，花費3000元，攻擊力350" << endl;
 }
 
-WeaponLib::Weapon* WizardWeaponStore::CreateWeapon(std::string weaponName) {
+WeaponLib::Weapon* WizardWeaponStore::CreateWeapon(int num) {
 	WeaponLib::Weapon* weapon;
 	weapon = nullptr;
-	if (weaponName == "白銀法杖") {
+	if (num == 1) {
 		weapon = new WeaponLib::WizardWeapon(WeaponLib::WizardWeaponCollection::WEAPON1);
 	}
-	else if (weaponName == "黃金法杖") {
+	else if (num == 2) {
 		weapon = new WeaponLib::WizardWeapon(WeaponLib::WizardWeaponCollection::WEAPON2);
 	}
-	else if (weaponName == "白金法杖") {
+	else if (num == 3) {
 		weapon = new WeaponLib::WizardWeapon(WeaponLib::WizardWeaponCollection::WEAPON3);
 	}
-	else if (weaponName == "鑽石法杖") {
+	else if (num == 4) {
 		weapon = new WeaponLib::WizardWeapon(WeaponLib::WizardWeaponCollection::WEAPON4);
 	}
 	return weapon;

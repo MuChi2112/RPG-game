@@ -4,6 +4,8 @@
 
 #include "weapon.h"
 #include "armor.h"
+#include "weaponStore.h"
+#include "armorStore.h"
 
 namespace CharacterLib {
 	enum class CharacterElemnt {
@@ -16,6 +18,7 @@ namespace CharacterLib {
 	public:
 		Character() {};
 		std::string GetName();
+		void SetName(std::string name);
 		int GetHealth();
 		int GetATK();
 		int GetDEF();
@@ -29,6 +32,9 @@ namespace CharacterLib {
 		void TakeAttack(Character* opponent);
 		void Treatment();
 		void Show();
+		bool BuyWeapon(WeaponStore* store);
+		bool BuyArmor(ArmorStore* store);
+		void Heal();
 
 	protected:
 

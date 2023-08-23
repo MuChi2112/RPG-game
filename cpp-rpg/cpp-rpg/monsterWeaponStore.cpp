@@ -7,19 +7,19 @@ void MonsterWeaponStore::Show() {
 	cout << "Æp¥ÛÆF¤M¡Aªá¶O3000¤¸¡A§ðÀ»¤O350" << endl;
 }
 
-WeaponLib::Weapon* MonsterWeaponStore::CreateWeapon(std::string weaponName) {
+WeaponLib::Weapon* MonsterWeaponStore::CreateWeapon(int num) {
 	WeaponLib::Weapon* weapon;
 	weapon = nullptr;
-	if (weaponName == "¥Õ»ÈÆF¤M") {
+	if ( num == 1) {
 		weapon = new WeaponLib::MonsterWeapon(WeaponLib::MonsterWeaponCollection::WEAPON1);
 	}
-	else if (weaponName == "¶Àª÷ÆF¤M") {
+	else if ( num == 2) {
 		weapon = new WeaponLib::MonsterWeapon(WeaponLib::MonsterWeaponCollection::WEAPON2);
 	}
-	else if (weaponName == "¥Õª÷ÆF¤M") {
+	else if ( num == 3) {
 		weapon = new WeaponLib::MonsterWeapon(WeaponLib::MonsterWeaponCollection::WEAPON3);
 	}
-	else if (weaponName == "Æp¥ÛÆF¤M") {
+	else if (num == 4) {
 		weapon = new WeaponLib::MonsterWeapon(WeaponLib::MonsterWeaponCollection::WEAPON4);
 	}
 	return weapon;

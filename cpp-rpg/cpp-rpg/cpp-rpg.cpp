@@ -1,10 +1,25 @@
 ﻿#include <iostream>
 #include "warriorWeaponStore.h"
+#include "wizardWeaponStore.h"
+#include "monsterWeaponStore.h"
+#include "warriorArmorStore.h"
+#include "wizardArmorStore.h"
+#include "monsterArmorStore.h"
+
 #include "characterFactory.h"
 
 int playerNum = 0;
 int turns = 0;
 int playerTurns = 1;
+
+WeaponStore * warriorWeaponStore = new WarriorWeaponStore();
+WeaponStore* wizardWeaponStore = new WizardWeaponStore();
+WeaponStore* monsterWeaponStore = new MonsterWeaponStore();
+
+ArmorStore* warriorArmorStore = new WarriorArmorStore();
+ArmorStore* wizardArmorStore = new WizardArmorStore();
+ArmorStore* monsterArmorStore = new MonsterArmorStore();
+
 
 CharacterLib::Character* createPlayer() {
 	playerNum++;
@@ -21,15 +36,21 @@ CharacterLib::Character* createPlayer() {
 	}
 
 	CharacterLib::Character* player = CharacterFactory::createChacracter(std::stoi(characterNum));
-
+	
 	player->SetMoney(2000);
 
 	return player;
 }
 
 void mainStep(CharacterLib::Character* playerA, CharacterLib::Character* playerB) {
+	system("cls");
+
 	(playerTurns % 2 != 0) ? std::cout << "玩家 1 的" : std::cout << "玩家 2 的";
 	std::cout << "第" << turns << "回合" << std::endl;
+	
+	playerA->Show();
+
+
 	std::cout << "1. 攻擊" << endl << "2. 買武器" << endl << "3. 買盔甲" << endl << "4. 治療" << std::endl;
 
 	std::string chooseNum = "";
@@ -40,16 +61,41 @@ void mainStep(CharacterLib::Character* playerA, CharacterLib::Character* playerB
 		std::cin >> chooseNum;
 	}
 
-	if (chooseNum == "1") {
-		playerA->TakeAttack(playerB);
-	}
-	else if (chooseNum == "2") {
-	}
-	else if (chooseNum == "3") {
-	}
-	else if (chooseNum == "4") {
+	bool isChoise = false;
+	while (isChoise == false) {
+		if (chooseNum == "1") {
+			isChoise = true;
+			playerA->TakeAttack(playerB);
+		}
+		else if (chooseNum == "2") {
+			if (playerA->GetName() == "Warrior") {
+				isChoise = playerA->BuyWeapon(warriorWeaponStore);
+			}
+			else if (playerA->GetName() == "Wizard") {
+				isChoise = playerA->BuyWeapon(wizardWeaponStore);
+			}
+			else {
+				isChoise = playerA->BuyWeapon(monsterWeaponStore);
+			}
+		}
+		else if (chooseNum == "3") {
+			if (playerA->GetName() == "Warrior") {
+				isChoise = playerA->BuyArmor(warriorArmorStore);
+			}
+			else if (playerA->GetName() == "Wizard") {
+				isChoise = playerA->BuyArmor(wizardArmorStore);
+			}
+			else {
+				isChoise = playerA->BuyArmor(monsterArmorStore);
+			}
+		}
+		else if (chooseNum == "4") {
+			isChoise = true;
+			playerA->Heal();
+		}
 	}
 
+	system("pause");
 	playerTurns++;
 }
 

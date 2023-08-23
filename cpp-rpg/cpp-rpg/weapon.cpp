@@ -3,6 +3,7 @@
 using namespace WeaponLib;
 
 Weapon::Weapon() {
+	ATK = 0;
 }
 
 Weapon::Weapon(WeaponElement element) {

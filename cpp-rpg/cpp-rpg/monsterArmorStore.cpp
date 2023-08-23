@@ -7,19 +7,19 @@ void MonsterArmorStore::Show() {
 	cout << "Æp¥ÛÅì¥Ò¡Aªá¶O3000¤¸¡A§ðÀ»¤O350" << endl;
 }
 
-ArmorLib::Armor* MonsterArmorStore::CreateArmor(std::string armorName) {
+ArmorLib::Armor* MonsterArmorStore::CreateArmor(int num) {
 	ArmorLib::Armor* armor;
 	armor = nullptr;
-	if (armorName == "¥Õ»ÈÅì¥Ò") {
+	if (num ==1) {
 		armor = new ArmorLib::MonsterArmor(ArmorLib::MonsterArmorCollection::Armor1);
 	}
-	else if (armorName == "¶Àª÷Åì¥Ò") {
+	else if ( num == 2) {
 		armor = new ArmorLib::MonsterArmor(ArmorLib::MonsterArmorCollection::Armor2);
 	}
-	else if (armorName == "¥Õª÷Åì¥Ò") {
+	else if ( num == 3) {
 		armor = new ArmorLib::MonsterArmor(ArmorLib::MonsterArmorCollection::Armor3);
 	}
-	else if (armorName == "Æp¥ÛÅì¥Ò") {
+	else if (num == 4) {
 		armor = new ArmorLib::MonsterArmor(ArmorLib::MonsterArmorCollection::Armor4);
 	}
 	return armor;
