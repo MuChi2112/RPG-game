@@ -1,7 +1,7 @@
 #include "warrior.h"
 
 CharacterLib::Warrior::Warrior() :Character() {
-	mHealth = 2000;
-	mATK = 200;
-	mDEF = 200;
+	mHealth = 5000;
+	mATK = 700;
+	mDEF = 700;
 }

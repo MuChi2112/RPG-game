@@ -3,10 +3,10 @@
 using namespace ArmorLib;
 
 std::map<MonsterArmorCollection, ArmorElement> MonsterArmorMap{
-	{MonsterArmorCollection::Armor1, { 500, 70, "護甲", "白銀" }},
-	{ MonsterArmorCollection::Armor2, {1000, 130, "護甲", "黃金"} },
-	{ MonsterArmorCollection::Armor3, {1800, 220, "護甲", "白金"} },
-	{ MonsterArmorCollection::Armor4, {3000, 350, "護甲", "鑽石"} },
+	{MonsterArmorCollection::Armor1, { 1000, 140, "鱗甲", "白銀" }},
+	{ MonsterArmorCollection::Armor2, {1500, 260, "鱗甲", "黃金"} },
+	{ MonsterArmorCollection::Armor3, {2000, 440, "鱗甲", "白金"} },
+	{ MonsterArmorCollection::Armor4, {4000, 700, "鱗甲", "鑽石"} },
 };
 
 MonsterArmor::MonsterArmor(MonsterArmorCollection collection)

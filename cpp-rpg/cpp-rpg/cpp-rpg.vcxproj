@@ -137,6 +137,7 @@
     <ClCompile Include="monsterArmorStore.h" />
     <ClCompile Include="monsterWeapon.cpp" />
     <ClCompile Include="monsterWeaponStore.cpp" />
+    <ClCompile Include="callOpenaiAPI.cpp" />
     <ClCompile Include="warrior.cpp" />
     <ClCompile Include="warriorArmor.cpp" />
     <ClCompile Include="warriorArmorStore.cpp" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="armorStore.h" />
     <ClInclude Include="armor.h" />
+    <ClInclude Include="callOpenAiAPI.h" />
     <ClInclude Include="character.h" />
     <ClInclude Include="characterFactory.h" />
     <ClInclude Include="monster.h" />

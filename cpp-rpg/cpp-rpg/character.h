@@ -30,11 +30,14 @@ namespace CharacterLib {
 		void SetWeapon(WeaponLib::Weapon weapon);
 		void SetArmor(ArmorLib::Armor armor);
 		void TakeAttack(Character* opponent);
-		void Treatment();
 		void Show();
+		std::string getInformation();
 		bool BuyWeapon(WeaponStore* store);
 		bool BuyArmor(ArmorStore* store);
 		void Heal();
+		void makeMoney();
+		void setPlayer(std::string player);
+		std::string getPlayer();
 
 	protected:
 
@@ -43,6 +46,7 @@ namespace CharacterLib {
 		int mATK;
 		int mDEF;
 		int mMoney;
+		std::string mPlayer;
 
 		WeaponLib::Weapon mWeapon;
 		ArmorLib::Armor mArmor;

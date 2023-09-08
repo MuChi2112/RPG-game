@@ -5,12 +5,13 @@
 #include "warriorArmorStore.h"
 #include "wizardArmorStore.h"
 #include "monsterArmorStore.h"
-
+#include "callOpenAiAPI.h"
 #include "characterFactory.h"
 
 int playerNum = 0;
 int turns = 0;
 int playerTurns = 1;
+bool playWithAI = false;
 
 WeaponStore * warriorWeaponStore = new WarriorWeaponStore();
 WeaponStore* wizardWeaponStore = new WizardWeaponStore();
@@ -19,6 +20,8 @@ WeaponStore* monsterWeaponStore = new MonsterWeaponStore();
 ArmorStore* warriorArmorStore = new WarriorArmorStore();
 ArmorStore* wizardArmorStore = new WizardArmorStore();
 ArmorStore* monsterArmorStore = new MonsterArmorStore();
+
+CallOpenAiAPI* callOpenAI = new CallOpenAiAPI();
 
 
 CharacterLib::Character* createPlayer() {
@@ -37,9 +40,15 @@ CharacterLib::Character* createPlayer() {
 
 	CharacterLib::Character* player = CharacterFactory::createChacracter(std::stoi(characterNum));
 	
-	player->SetMoney(2000);
+	player->SetMoney(200);
 
 	return player;
+}
+
+std::string getInformation(CharacterLib::Character* playerA, CharacterLib::Character* playerB) {
+	std::string out;
+	out+="我方資訊\n"+ playerA->getInformation()+"敵方資訊\n"+ playerB->getInformation();
+	return out;
 }
 
 void mainStep(CharacterLib::Character* playerA, CharacterLib::Character* playerB) {
@@ -48,17 +57,33 @@ void mainStep(CharacterLib::Character* playerA, CharacterLib::Character* playerB
 	(playerTurns % 2 != 0) ? std::cout << "玩家 1 的" : std::cout << "玩家 2 的";
 	std::cout << "第" << turns << "回合" << std::endl;
 	
-	playerA->Show();
-
-
-	std::cout << "1. 攻擊" << endl << "2. 買武器" << endl << "3. 買盔甲" << endl << "4. 治療" << std::endl;
-
+	playerA->makeMoney();
+	
 	std::string chooseNum = "";
-	std::cin >> chooseNum;
-
-	while (chooseNum != "1" && chooseNum != "2" && chooseNum != "3") {
-		std::cout << "請選擇行動" << std::endl;
+	if ( playerA->getPlayer() =="player1" || (playerA->getPlayer() == "player2" && playWithAI == false)) {
+		std::cout << "1. 攻擊" << endl << "2. 買武器" << endl << "3. 買盔甲" << endl << "4. 治療" << endl << "5. 資訊" << std::endl;
 		std::cin >> chooseNum;
+	}
+	else {
+		cout << "AI 現在在思考下一步的策略" << endl;
+	}
+
+
+
+
+	if (playerA->getPlayer()=="player2" &&   playWithAI == true) {
+		auto info = getInformation(playerA, playerB);
+		info += "幫我選擇接下來的行動，給我數字1~4\n";
+		info += "1. 攻擊 2. 買武器 3. 買盔甲 4. 治療 5. 資訊";
+		
+		chooseNum = callOpenAI->askQuestion(info);
+		cout << "AI選擇的策略是" << chooseNum << endl;
+	}
+	else {
+		while (chooseNum != "1" && chooseNum != "2" && chooseNum != "3" && chooseNum != "4" && chooseNum != "5") {
+			std::cout << "請選擇行動" << std::endl;
+			std::cin >> chooseNum;
+		}
 	}
 
 	bool isChoise = false;
@@ -93,23 +118,53 @@ void mainStep(CharacterLib::Character* playerA, CharacterLib::Character* playerB
 			isChoise = true;
 			playerA->Heal();
 		}
+		else if (chooseNum == "5") {
+			cout << "我方資訊" << endl;
+			playerA->Show();
+			cout << "敵方資訊" << endl;
+			playerB->Show();
+			std::cout << "1. 攻擊" << endl << "2. 買武器" << endl << "3. 買盔甲" << endl << "4. 治療" <<endl;
+			std::cin >> chooseNum;
+			while (chooseNum != "1" && chooseNum != "2" && chooseNum != "3" && chooseNum != "4") {
+				std::cout << "請選擇行動" << std::endl;
+				std::cin >> chooseNum;
+			}
+		}
 	}
 
-	system("pause");
+	
 	playerTurns++;
 }
 
 int main() {
+
 	std::cout << "遊戲開始" << std::endl;
+	std::cout << "您要跟AI玩遊戲嗎?要跟AI對戰的話請輸入1, 其餘則是雙人對戰" << std::endl;
+	string aiStr = "";
+	cin >> aiStr;
+	if (aiStr == "1") {
+		playWithAI = true;
+	}
+
 
 	CharacterLib::Character* player1 = createPlayer();
 	CharacterLib::Character* player2 = createPlayer();
+
+	player1->setPlayer("player1");
+	player2->setPlayer("player2");
 
 	while (player1->GetHealth() != 0 && player2->GetHealth() != 0) {
 		turns++;
 
 		mainStep(player1, player2);
+		if (player1->GetHealth() == 0 || player2->GetHealth() == 0) {
+			break;
+		}
+		system("pause");
+
+
 		mainStep(player2, player1);
+		system("pause");
 	}
 
 	if (player1->GetHealth() != 0) {

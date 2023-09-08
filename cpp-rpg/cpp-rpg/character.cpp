@@ -78,15 +78,17 @@ void Character::TakeAttack(Character* opponent) {
 
 
 }
-void Character::Treatment() {
-}
+
 void Character::Show() {
+		
 	cout << "玩家資訊" << endl;
 	cout << "玩家職業: " << mName<<endl;
 	cout << "生命值: " << mHealth << endl;
 	cout << "攻擊力: " << mATK << endl;
 	cout << "防禦力: " << mDEF << endl;
 	cout << "錢: " << mMoney << endl;
+
+
 
 	if (mWeapon.GetName().empty()) {
 		cout << "身上沒有戴武器" << endl;
@@ -103,6 +105,29 @@ void Character::Show() {
 	}
 
 }
+std::string Character::getInformation() {
+	std::string out;
+
+	out += "玩家資訊\n玩家職業: " + mName + "\n" +
+		"生命值: " + to_string(mHealth) + "\n攻擊力: " + to_string(mATK) + "\n防禦力: " +
+		to_string(mDEF) + "\n錢: " + to_string(mMoney) + "\n";
+
+	if (mWeapon.GetName().empty()) {
+		out += "身上沒有戴武器\n";
+	}
+	else {
+		out += "武器: " + mWeapon.GetName() + "\n";
+	}
+
+	if (mArmor.GetName().empty()) {
+		out += "身上沒有戴防具\n";
+	}
+	else {
+		out += "防具: " + mArmor.GetName() + "\n";
+	}
+	return out;
+}
+
 bool Character::BuyWeapon(WeaponStore* store) {
 
 	store->Show();
@@ -182,8 +207,32 @@ bool Character::BuyArmor(ArmorStore* store){
 	}
 	return true;
 }
+void Character::makeMoney() {
+	int moneyOwn = GetMoney();
+	float moneyGive = 0.0;
+
+	moneyGive = (float)moneyOwn / 10000;
+	moneyGive = 1 - moneyGive;
+	moneyGive *= 1500;
+	moneyGive += moneyOwn;
+
+	this->SetMoney(moneyGive);
+
+	std::cout << "這回合賺了" << (int)(moneyGive - moneyOwn) << "元" << endl;
+	std::cout << "現在擁有" << int(moneyGive) << "元" << endl;
+}
 void Character::Heal() {
 	int heal = 100 * randomInt(1, 5);
 	int chaHP = this->GetHealth() + heal;
 	this->SetHealth(chaHP);
+	std::cout << "回復了" << heal << ",現在血量為: " << chaHP << endl;
+}
+
+void Character::setPlayer(std::string player){
+	mPlayer = player;
+}
+
+
+std::string Character::getPlayer() {
+	return mPlayer;
 }

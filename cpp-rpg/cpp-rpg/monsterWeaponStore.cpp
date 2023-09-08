@@ -1,10 +1,10 @@
 #include "monsterWeaponStore.h"
 
 void MonsterWeaponStore::Show() {
-	cout << "白銀靈刀，花費500元，攻擊力70" << endl;
-	cout << "黃金靈刀，花費1000元，攻擊力130" << endl;
-	cout << "白金靈刀，花費1800元，攻擊力220" << endl;
-	cout << "鑽石靈刀，花費3000元，攻擊力350" << endl;
+	cout << "白銀槌子，花費1000元，攻擊力140" << endl;
+	cout << "黃金槌子，花費1500元，攻擊力260" << endl;
+	cout << "白金槌子，花費2000元，攻擊力440" << endl;
+	cout << "鑽石槌子，花費4000元，攻擊力700" << endl;
 }
 
 WeaponLib::Weapon* MonsterWeaponStore::CreateWeapon(int num) {

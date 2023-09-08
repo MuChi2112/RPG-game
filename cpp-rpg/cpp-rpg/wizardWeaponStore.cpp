@@ -1,10 +1,10 @@
 #include "wizardWeaponStore.h"
 
 void WizardWeaponStore::Show() {
-	cout << "白銀法杖，花費500元，攻擊力70" << endl;
-	cout << "黃金法杖，花費1000元，攻擊力130" << endl;
-	cout << "白金法杖，花費1800元，攻擊力220" << endl;
-	cout << "鑽石法杖，花費3000元，攻擊力350" << endl;
+	cout << "白銀法杖，花費500元，攻擊力200" << endl;
+	cout << "黃金法杖，花費1000元，攻擊力300" << endl;
+	cout << "白金法杖，花費1800元，攻擊力500" << endl;
+	cout << "鑽石法杖，花費3000元，攻擊力1000" << endl;
 }
 
 WeaponLib::Weapon* WizardWeaponStore::CreateWeapon(int num) {

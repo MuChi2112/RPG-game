@@ -3,10 +3,10 @@
 using namespace WeaponLib;
 
 std::map<MonsterWeaponCollection, WeaponElement> MonsterWeaponsMap{
-    {MonsterWeaponCollection::WEAPON1, {500, 70, "槌子", "白銀"}},
-    {MonsterWeaponCollection::WEAPON2, {1000, 130, "槌子", "黃金"}},
-    {MonsterWeaponCollection::WEAPON3, {1800, 220, "槌子", "白金"}},
-    {MonsterWeaponCollection::WEAPON4, {3000, 350, "槌子", "鑽石"}},
+    {MonsterWeaponCollection::WEAPON1, {1000, 140, "槌子", "白銀"}},
+    {MonsterWeaponCollection::WEAPON2, {1500, 260, "槌子", "黃金"}},
+    {MonsterWeaponCollection::WEAPON3, {2000, 440, "槌子", "白金"}},
+    {MonsterWeaponCollection::WEAPON4, {4000, 700, "槌子", "鑽石"}},
 };
 
 	MonsterWeapon::MonsterWeapon(MonsterWeaponCollection collection)

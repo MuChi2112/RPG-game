@@ -81,6 +81,9 @@
     <ClCompile Include="monsterArmorStore.cpp">
       <Filter>來源檔案</Filter>
     </ClCompile>
+    <ClCompile Include="callOpenaiAPI.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="armor.h">
@@ -138,6 +141,9 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="wizardArmorStore.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="callOpenAiAPI.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
