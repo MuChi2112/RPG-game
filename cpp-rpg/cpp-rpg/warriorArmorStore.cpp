@@ -1,10 +1,19 @@
 #include "warriorArmorStore.h"
 
 void WarriorArmorStore::Show() {
-	cout << "白銀鎧甲，花費500元，防禦力70" << endl;
-	cout << "黃金鎧甲，花費1000元，防禦力130" << endl;
-	cout << "白金鎧甲，花費1800元，防禦力220" << endl;
-	cout << "鑽石鎧甲，花費3000元，防禦力350" << endl;
+	cout << "1, 白銀鎧甲，花費500元，防禦力70" << endl;
+	cout << "2. 黃金鎧甲，花費1000元，防禦力130" << endl;
+	cout << "3. 白金鎧甲，花費1800元，防禦力220" << endl;
+	cout << "4. 鑽石鎧甲，花費3000元，防禦力350" << endl;
+}
+
+std::string WarriorArmorStore::GetInfo() {
+	std::string info = "";
+	info += "1. 白銀鎧甲，花費500元，防禦力70\n";
+	info += "2. 黃金鎧甲，花費1000元，防禦力130\n";
+	info += "3. 白金鎧甲，花費1800元，防禦力220\n";
+	info += "4. 鑽石鎧甲，花費3000元，防禦力350\n";
+	return info;
 }
 
 ArmorLib::Armor* WarriorArmorStore::CreateArmor(int num) {

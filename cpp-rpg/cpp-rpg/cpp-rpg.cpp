@@ -58,77 +58,79 @@ void mainStep(CharacterLib::Character* playerA, CharacterLib::Character* playerB
 	std::cout << "第" << turns << "回合" << std::endl;
 	
 	playerA->makeMoney();
+
+	auto getInfo = [&]() {
+		return getInformation(playerA, playerB);
+	};
+	auto askQues = [&](string info) {
+		return callOpenAI->askQuestion(info);
+	};
 	
-	std::string chooseNum = "";
-	if ( playerA->getPlayer() =="player1" || (playerA->getPlayer() == "player2" && playWithAI == false)) {
-		std::cout << "1. 攻擊" << endl << "2. 買武器" << endl << "3. 買盔甲" << endl << "4. 治療" << endl << "5. 資訊" << std::endl;
-		std::cin >> chooseNum;
-	}
-	else {
-		cout << "AI 現在在思考下一步的策略" << endl;
-	}
-
-
-
-
-	if (playerA->getPlayer()=="player2" &&   playWithAI == true) {
-		auto info = getInformation(playerA, playerB);
-		info += "幫我選擇接下來的行動，給我數字1~4\n";
-		info += "1. 攻擊 2. 買武器 3. 買盔甲 4. 治療 5. 資訊";
-		
-		chooseNum = callOpenAI->askQuestion(info);
-		cout << "AI選擇的策略是" << chooseNum << endl;
-	}
-	else {
-		while (chooseNum != "1" && chooseNum != "2" && chooseNum != "3" && chooseNum != "4" && chooseNum != "5") {
-			std::cout << "請選擇行動" << std::endl;
-			std::cin >> chooseNum;
-		}
-	}
-
 	bool isChoise = false;
 	while (isChoise == false) {
+		std::string chooseNum = "";
+		if (playerA->getPlayer() == "player1" || (playerA->getPlayer() == "player2" && playWithAI == false)) {
+			std::cout << "1. 攻擊" << endl << "2. 買武器" << endl << "3. 買盔甲" << endl << "4. 治療" << endl << "5. 資訊" << std::endl;
+			std::cin >> chooseNum;
+		}
+		else {
+			std::cout << "1. 攻擊 "  << "2. 買武器 "  << "3. 買盔甲 " << "4. 治療 "  << std::endl;
+			cout << "AI 現在在思考下一步的策略" << endl;
+		}
+
+		if (playerA->getPlayer() == "player2" && playWithAI == true ) {
+			auto info = getInformation(playerA, playerB);
+			info += "幫我選擇接下來的行動，給我數字1~4\n";
+			info += "1. 攻擊 2. 買武器 3. 買盔甲 4. 治療 5. 資訊";
+
+			chooseNum = callOpenAI->askQuestion(info);
+			cout << "AI選擇的策略是" << chooseNum << endl;
+		}
+		else {
+			while (chooseNum != "1" && chooseNum != "2" && chooseNum != "3" && chooseNum != "4" && chooseNum != "5") {
+				std::cout << "請選擇行動" << std::endl;
+				std::cin >> chooseNum;
+			}
+		}
+		
 		if (chooseNum == "1") {
 			isChoise = true;
 			playerA->TakeAttack(playerB);
 		}
-		else if (chooseNum == "2") {
-			if (playerA->GetName() == "Warrior") {
-				isChoise = playerA->BuyWeapon(warriorWeaponStore);
+		else if (chooseNum == "2") {			
+		
+
+			if (playerA->GetName() == "Warrior") {                      
+				isChoise = playerA->BuyWeapon(warriorWeaponStore, getInfo, askQues, playWithAI);
 			}
 			else if (playerA->GetName() == "Wizard") {
-				isChoise = playerA->BuyWeapon(wizardWeaponStore);
+				isChoise = playerA->BuyWeapon(wizardWeaponStore, getInfo, askQues, playWithAI);
 			}
 			else {
-				isChoise = playerA->BuyWeapon(monsterWeaponStore);
+				isChoise = playerA->BuyWeapon(monsterWeaponStore, getInfo, askQues, playWithAI);
 			}
 		}
-		else if (chooseNum == "3") {
+		else if (chooseNum == "3") {	
 			if (playerA->GetName() == "Warrior") {
-				isChoise = playerA->BuyArmor(warriorArmorStore);
+				isChoise = playerA->BuyArmor(warriorArmorStore,  getInfo, askQues, playWithAI);
 			}
 			else if (playerA->GetName() == "Wizard") {
-				isChoise = playerA->BuyArmor(wizardArmorStore);
+				isChoise = playerA->BuyArmor(wizardArmorStore, getInfo, askQues, playWithAI);
 			}
 			else {
-				isChoise = playerA->BuyArmor(monsterArmorStore);
+				isChoise = playerA->BuyArmor(monsterArmorStore, getInfo, askQues, playWithAI);
 			}
 		}
 		else if (chooseNum == "4") {
 			isChoise = true;
 			playerA->Heal();
 		}
+
 		else if (chooseNum == "5") {
 			cout << "我方資訊" << endl;
 			playerA->Show();
 			cout << "敵方資訊" << endl;
 			playerB->Show();
-			std::cout << "1. 攻擊" << endl << "2. 買武器" << endl << "3. 買盔甲" << endl << "4. 治療" <<endl;
-			std::cin >> chooseNum;
-			while (chooseNum != "1" && chooseNum != "2" && chooseNum != "3" && chooseNum != "4") {
-				std::cout << "請選擇行動" << std::endl;
-				std::cin >> chooseNum;
-			}
 		}
 	}
 
@@ -157,7 +159,7 @@ int main() {
 		turns++;
 
 		mainStep(player1, player2);
-		if (player1->GetHealth() == 0 || player2->GetHealth() == 0) {
+		if (player1->GetHealth() <= 0 || player2->GetHealth() <= 0) {
 			break;
 		}
 		system("pause");
@@ -168,9 +170,9 @@ int main() {
 	}
 
 	if (player1->GetHealth() != 0) {
-		std::cout << "'Player1 wins";
+		std::cout << "Player1 wins";
 	}
 	else {
-		std::cout << "'Player2 wins";
+		std::cout << "Player2 wins";
 	}
 }

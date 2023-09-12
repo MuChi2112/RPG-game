@@ -1,10 +1,19 @@
 #include "wizardArmorStore.h"
 
 void WizardArmorStore::Show() {
-	cout << "白銀面紗，花費500元，防禦力50" << endl;
-	cout << "黃金面紗，花費1000元，防禦力100" << endl;
-	cout << "白金面紗，花費1800元，防禦力200" << endl;
-	cout << "鑽石面紗，花費3000元，防禦力250" << endl;
+	cout << "1. 白銀面紗，花費500元，防禦力50" << endl;
+	cout << "2. 黃金面紗，花費1000元，防禦力100" << endl;
+	cout << "3. 白金面紗，花費1800元，防禦力200" << endl;
+	cout << "4. 鑽石面紗，花費3000元，防禦力250" << endl;
+}
+
+std::string WizardArmorStore::GetInfo() {
+	std::string info = "";
+	info += "1. 白銀面紗，花費500元，防禦力50\n";
+	info += "2. 黃金面紗，花費1000元，防禦力100\n";
+	info += "3. 白金面紗，花費1800元，防禦力200\n";
+	info += "4. 鑽石面紗，花費3000元，防禦力250\n";
+	return info;
 }
 
 ArmorLib::Armor* WizardArmorStore::CreateArmor(int num) {

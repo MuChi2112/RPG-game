@@ -19,7 +19,7 @@ std::string CallOpenAiAPI::askQuestion(std::string question) {
     }
 
     _pclose(pipe);
-    std::cout << "Output from Python .exe:\n" << result << std::endl;
+    //std::cout << "Output from Python .exe:\n" << result << std::endl;
 
     // 使用正則表達式從 result 中提取最後一個 1 到 4 之間的數字
     std::regex r("([1-4])[^1-4]*$");

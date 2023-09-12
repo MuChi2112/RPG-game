@@ -1,11 +1,13 @@
 #pragma once
 
 #include <string>
+#include <functional>
 
 #include "weapon.h"
 #include "armor.h"
 #include "weaponStore.h"
 #include "armorStore.h"
+
 
 namespace CharacterLib {
 	enum class CharacterElemnt {
@@ -32,8 +34,8 @@ namespace CharacterLib {
 		void TakeAttack(Character* opponent);
 		void Show();
 		std::string getInformation();
-		bool BuyWeapon(WeaponStore* store);
-		bool BuyArmor(ArmorStore* store);
+		bool BuyWeapon(WeaponStore* store, std::function<std::string()> getInformation, std::function<std::string(std::string)> askQuestion, bool playWithAI );
+		bool BuyArmor(ArmorStore* store, std::function<std::string()> getInformation, std::function<std::string(std::string)> askQuestion, bool playWithAI);
 		void Heal();
 		void makeMoney();
 		void setPlayer(std::string player);

@@ -128,19 +128,44 @@ std::string Character::getInformation() {
 	return out;
 }
 
-bool Character::BuyWeapon(WeaponStore* store) {
+bool Character::BuyWeapon(WeaponStore* store, std::function<std::string()> getInformation, std::function<std::string(std::string)> askQuestion, bool playWithAI) {
+
+	if (mMoney < 500) {
+		return false;
+	}
 
 	store->Show();
 
 	int number = 0;
 	std::cout << "請輸入數字1~4, 如果要退出購買的話輸入9" << std::endl;
-	std::cin >> number;
+
+	if (mPlayer == "player2" && playWithAI) {
+		auto info = getInformation();
+		info += "幫我選擇接下來的武器";
+		info += store->GetInfo();
+		number = stoi(askQuestion(info));
+		cout << "AI選擇的武器是" << number << endl;
+	}
+	else {
+		std::cin >> number;
+	}
+
 	bool buy = false;
 	WeaponLib::Weapon newWeapon;
 	while (buy == false) {
 		while (number != 1 && number != 2 && number != 3 && number != 4 && number!=9) {
-			std::cout << "請輸入數字1~4, 如果要退出購買的話輸入9"<<std::endl;
-			std::cin >> number;
+			
+			if (mPlayer == "player2" && playWithAI) {
+				auto info = getInformation();
+				info += "幫我選擇接下來的武器";
+				info += store->GetInfo();
+				number = stoi(askQuestion(info));
+				cout << "AI選擇的武器是" << number << endl;
+			}
+			else {
+				std::cout << "請輸入數字1~4, 如果要退出購買的話輸入9" << std::endl;
+				std::cin >> number;
+			}
 		}
 
 		if (number == 9) {
@@ -155,6 +180,9 @@ bool Character::BuyWeapon(WeaponStore* store) {
 		if (mWeapon.GetRank() == newWeapon.GetRank()) {
 			number = 0;
 			std::cout << "該武器已經裝備" << std::endl;
+
+			auto info = getInformation();
+			info += "該武器已經裝備";
 		}
 		else if (curMoney < 0) {
 			number = 0;
@@ -168,19 +196,44 @@ bool Character::BuyWeapon(WeaponStore* store) {
 	}
 	return true;
 }
-bool Character::BuyArmor(ArmorStore* store){
+bool Character::BuyArmor(ArmorStore* store, std::function<std::string()> getInformation, std::function<std::string(std::string)> askQuestion, bool playWithAI){
+
+	if (mMoney < 500) {
+		return false;
+	}
 
 	store->Show();
 
 	int number = 0;
 	std::cout << "請輸入數字1~4, 如果要退出購買的話輸入9" << std::endl;
-	std::cin >> number;
+
+	if (mPlayer == "player2" && playWithAI) {
+		auto info = getInformation();
+		info += "幫我選擇接下來防器";
+		info += store->GetInfo();
+		number = stoi(askQuestion(info));
+		cout << "AI選擇的防具是" << number << endl;
+	}
+	else {
+		std::cin >> number;
+	}
+
+
 	bool buy = false;
 	ArmorLib::Armor newArmor;
 	while (buy == false) {
 		while (number != 1 && number != 2 && number != 3 && number != 4 && number != 9) {
-			std::cout << "請輸入數字1~4, 如果要退出購買的話輸入9" << std::endl;
-			std::cin >> number;
+			if (mPlayer == "player2" && playWithAI) {
+				auto info = getInformation();
+				info += "幫我選擇接下來的防具";
+				info += store->GetInfo();
+				number = stoi(askQuestion(info));
+				cout << "AI選擇的防具是" << number << endl;
+			}
+			else {
+				std::cout << "請輸入數字1~4, 如果要退出購買的話輸入9" << std::endl;
+				std::cin >> number;
+			}
 		}
 
 		if (number == 9) {
