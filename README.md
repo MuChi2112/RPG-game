@@ -16,3 +16,7 @@
 
 ## 安裝
 [Microsoft Visual Studio 2022](https://visualstudio.microsoft.com/zh-hant/vs/whatsnew/)(下載連結)
+
+# Flow chart and UML
+![](https://github.com/MuChi2112/RPG-game/blob/main/RPG_README_pic/rpg_flow_chart2.drawio.png?raw=true)
+![](https://github.com/MuChi2112/RPG-game/blob/main/RPG_README_pic/%E9%A1%9E%E5%88%A5%E5%9C%962.drawio.png?raw=true)
