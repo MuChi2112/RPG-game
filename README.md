@@ -1,6 +1,7 @@
 # AI-RPG-GAME
 
 這是一個加入chatgpt.api作為另一個遊戲對手的RPG遊戲。
+如果要加入AI功能的話，創立一個config.txt裡面輸入openai的 person token，接這把config.txt放到cpp-rpg/cpp-rpg的資料夾下面
 
 ## 功能
 
